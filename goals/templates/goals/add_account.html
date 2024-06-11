@@ -1,0 +1,33 @@
+{% extends "goals/base.html" %}
+
+{% block content %}
+<main>
+    <div class="container">
+      <!-- Navbar -->
+        <section class="mb-4">
+            <div class="">
+                <div class="adjustment column-6  text-center">
+                    <h1>Create another account</h1>
+                        <form class="login" method="POST" action="{% url 'add-accounts' %}">
+                            {% csrf_token %}
+                            <div class="input-box">
+                                {{form.email}}
+                            </div>
+                            <div class="input-box">
+                                {{form.username}} 
+                            </div>
+                            <div class="input-box">
+                                {{form.password}}
+                            </div>
+                            <div class="input-box">
+                                {{form.confirm_password}}
+                            </div>
+                            <button class="btn btn-primary" type="submit">Add Account</button>
+                        </form>
+                
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+{% endblock content %}

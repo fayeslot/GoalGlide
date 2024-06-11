@@ -1,0 +1,97 @@
+{% extends 'goals/base.html' %}
+{% block content %} 
+    <div id="center" class="main center">
+          <!--<div class="mainInner"></div>-->
+          <strong class="ml-5">Goals</strong>
+          <p>The place where your goals will become a reality</p>
+    </div>
+    
+    <div class="goalglide">
+        <div class="goals-container">
+            
+            <div class="started-goals">
+                <h5 class="card-title p-2">Not Started</h5>
+                {% for goal in not_started_goals %}
+                <div class="">
+                    <a href="{{goal.get_absolute_url}}">
+                        <div class="goal text-center mt-2">
+                            <h5 class="text-primary">{{ goal.name }}</h5>
+                            <div class="card-body text-dark">    
+                                <p>Category: {{ goal.category }}</p>
+                                <div class="visibility d-flex justify-content-between">
+                                    <p class="d-flex"><box-icon name='low-vision'></box-icon>{{ goal.get_visibility_display }}</p>
+                                    <p class="d-flex"><box-icon name='radar'></box-icon>{{ goal.target_date|date:"d M Y" }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                {% empty %}
+            <div class="goal text-center">
+                <p class="text-center">No Goals in this Category</p>       
+            </div>
+                {% endfor %}
+            </div>
+            
+            
+            <div class="started-goals">
+                <h5 class="card-title p-2">In Progress</h5>
+                {% for goal in goals_inprogress %}
+                
+                <div class="">
+                    <a href="{{goal.get_absolute_url}}">
+                        <div class="goal text-center mt-2">
+                            <h5 class="text-primary">{{ goal.name }}</h5>
+                            <div class="card-body text-dark">    
+                                <p>Category: {{ goal.category }}</p>
+                                <div class="visibility d-flex justify-content-between">
+                                    <p class="d-flex"><box-icon name='low-vision'></box-icon>{{ goal.get_visibility_display }}</p>
+                                    <p class="d-flex"><box-icon name='radar'></box-icon>{{ goal.target_date|date:"d M Y" }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                {% empty %}
+                <div class="goal text-center">
+                    <p class="text-center">No Goals in this Category</p>       
+                </div>
+                {% endfor %}
+            </div>
+            
+            
+            <div class="started-goals">
+                <h5 class="card-title p-1">Completed</h5>
+                {% for goal in completed_goals %}
+                <div class="">
+                    <a href="{{goal.get_absolute_url}}">
+                        <div class="goal text-center mt-2">
+                            <h5 class="text-primary">{{ goal.name }}</h5>
+                            <div class="card-body text-dark">    
+                                <p>Category: {{ goal.category }}</p>
+                                <div class="visibility d-flex justify-content-between">
+                                    <p class="d-flex"><box-icon name='low-vision'></box-icon>{{ goal.get_visibility_display }}</p>
+                                    <p class="d-flex"><box-icon name='radar'></box-icon>{{ goal.target_date|date:"d M Y" }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                {% empty %}
+                <div class="goal text-center">
+                    <p class="text-center">No Goals in this Category</p>       
+                </div>
+                {% endfor %}
+            </div>
+           
+        </div>
+        <div class="float-right">
+            <a href="{% url 'add-goal' %}" class="btn btn-primary">Add New Goal</a> 
+        </div>
+        
+    </div>
+    
+{% endblock content %}

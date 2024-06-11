@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: Poppins,sans-serif;
+    
+}
+:root{
+    --bg-color: #081b29;
+    --second-bg-color: #112e42;
+    --text-color: #ededed;
+    --main-color: #00abf0;
+}
+
+
+body{
+    background-color: var(--text-color);
+    padding: 3px;
+}
+.home{
+    margin: 15rem;
+    text-align: center;
+
+}
+.adjustment{
+  max-width: 900px;
+  margin-bottom: 10px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.adjustment form{
+    /*min-width: 50rem;*/
+    margin: 1rem auto;
+    text-align: center;
+    margin-bottom: 3rem;
+    justify-content: center;
+}
+.adjustment form .input-box input{
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    color: var(--bg-color);
+    background: var(--text-color);
+    border-radius: .8rem;
+    margin: .7rem 0;
+    box-shadow: 0 .1rem .5rem var(--main-color);
+}
+.adjustment form .input-box input{
+    width: 80%;
+}
+
+#sidebarMenu{
+    height: 100%;
+    position: fixed;
+    left: 0;
+    width: 250px;
+    margin-top: 32px;
+    transform: translateX(-250px);
+    transition: transform 250ms ease-in-out;
+    background: linear-gradient(180deg, #dec8e7 0%, #eff0f9 100%);
+}
+.sidebarMenuInner{
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+.sidebarMenuInner ul{
+    float: right;
+    margin-right: 20px;
+}
+.sidebarMenuInner li{
+    list-style: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 20px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+
+}
+
+.sidebarMenuInner li a{
+    color: #0a0a0a;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+input[type="checkbox"]:checked
+~#sidebarMenu{
+    transform: translateX(0);
+}
+input[type=checkbox]{
+    transition: all 0.3s;
+    box-sizing: border-box;
+    display: none;
+}
+.sidebarIconToggle{
+    transition: all 0.3s;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1000;
+    height: 100%;
+    width: 100%;
+    top: 22px;
+    left: 15px;
+    height: 22px;
+    width: 22px;
+}
+.main center strong{
+    margin-top: 0;
+    align-items: center;
+    
+}
+
+.spinner{
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: relative;
+    height: 3px;
+    width: 100%;
+    background-color: #151515;
+    margin: 2px 0;
+}
+
+.goalglide .goals-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    z-index: 0;
+}
+
+.goals-container .card{
+    flex: 1 1 1;
+}
+.goals-container .card .visibility{
+    justify-content: space-between;
+}
+
+
+.accounts {
+  max-width: 500px;
+  margin-bottom: 10px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.accounts-img{
+    width: 25rem;
+    height: auto;
+    border-radius: 50%;
+    justify-content: center;
+    margin-left: 12rem;
+    margin-top: 3rem;
+}
+
+.accounts-img h1{
+    height: 25%;
+    width: 25%;
+    border-radius: 50%;
+    background-color: palevioletred;
+    border: .1rem solid var(--main-color);
+    border: .1rem solid var(--second-bg-color);
+    font-size: 5rem;
+    color: #333;
+    
+}
+.heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.heading span {
+  font-weight: normal;
+  color: #666;
+}
+
+
+.btns {
+  display: inline-block;
+  margin: 10px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.accounts-content{
+    text-align: center;
+}
+.accounts-content h3{
+    font-size: 2.6rem;
+}
+.accounts-content p{
+    font-size: 1.6rem;
+    margin: 2rem 0 3rem;
+}
+
+.copyright {
+    position: fixed;
+    bottom:  0;
+    width: 100%;
+    padding: 10px;
+    height: 2.5rem;
+    
+}
+.card{
+    padding: 2rem;
+}
+
+.goal{
+  max-width: 25rem;
+  margin-bottom: 5px;
+  padding: 2rem;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 992px) {
+    html{
+        font-size: 100%;
+    }
+    .navbar-brand {
+      font-size: 1.2rem;
+    }
+    .navbar-nav {
+      flex-direction: column;
+    }
+    .nav-item {
+      margin-right: 0;
+    }
+    .nav-link {
+      padding: 10px;
+    }
+    .collapse {
+        flex-basis: 100%;
+    }
+    .navbar-collapse {
+        flex-basis: 100%;
+    }
+    .main {
+        margin: 20px auto;
+      }
+      .skills-container {
+        max-width: 600px;
+        justify-content: center;
+        margin-left: 12rem;
+      }
+      
+      .table td {
+        padding: 10px;
+      }
+      .card {
+        margin-bottom: 15px;
+        padding: 4rem;
+      }
+      .card-body {
+        padding: 15px;
+      }
+      .container {
+        max-width: 600px;
+       
+      }
+      .input-box {
+        margin-bottom: 10px;
+        min-width: 100%;
+      }
+      input[type="text"], input[type="email"], input[type="password"] {
+        padding: 5px;
+      }
+      button[type="submit"] {
+        padding: 8px;
+      }
+        
+}
+
+@media (max-width: 768px) {
+    .navbar-brand {
+      font-size: 1rem;
+    }
+    .sidebarIconToggle {
+      font-size: 20px;
+    }
+    #sidebarMenu {
+      width: 200px;
+    }
+    .main {
+        margin: 10px auto;
+    }
+    .skills-container {
+        max-width: 400px;
+        justify-content: center;
+        margin-left: 10rem;
+    }
+    .table td {
+        padding: 5px;
+    }
+    .card {
+        margin-bottom: 10px;
+        padding: 4rem;
+      }
+      .card-body {
+        padding: 10px;
+      }
+      .container {
+        max-width: 500px;
+      }
+      
+      .input-box {
+        margin-bottom: 10px;
+      }
+      input[type="text"], input[type="email"], input[type="password"] {
+        padding: 6px;
+      }
+      button[type="submit"] {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+      }
+  }
+  
+
+  @media (max-width: 480px) {
+    html{
+        font-size: 70%;
+    }
+    nav{ 
+        display: flex;
+        bottom:  0;
+        width: 100%;
+        height: 5rem;              
+    }
+    #navbarSupportedContent1 {
+      font-size: 1rem;
+    }
+    .sidebarIconToggle {
+      font-size: 18px;
+    }
+    #sidebarMenu {
+      width: 150px;
+    }
+    .main {
+        margin: 5px auto;
+    }
+    .skills-container {
+        display: block;
+        max-width: 250px;
+        margin-left: 8rem;
+    }
+    .table td {
+        padding: 3px;
+    }
+    .card {
+
+        margin-bottom: 5px;
+        padding: 4rem;
+    }
+    .card-body {
+        padding: 5px;
+    }
+    .container {
+        max-width: 350px;
+      }
+    
+    .input-box {
+        margin-bottom: 8px;
+    }
+      input[type="text"], input[type="email"], input[type="password"] {
+        padding: 4px;
+      }
+      button[type="submit"] {
+        padding: 4px;
+      }
+  }
+
+
+
+

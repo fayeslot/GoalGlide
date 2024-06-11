@@ -1,0 +1,23 @@
+{% extends 'goals/base.html' %}
+{% block content %} 
+<div>
+    
+    <div class="goal text-center mt-2 justify-content-between">
+        <h5 class="text-primary">{{ object.name }}</h5>
+        <div class="card-body text-dark">    
+            <p>Category: {{ object.category }}</p>
+            <div class="visibility d-flex justify-content-between">
+                <p class="d-flex"><box-icon name='low-vision'></box-icon>{{ object.get_visibility_display }}</p>
+                <p class="d-flex"><box-icon name='radar'></box-icon>{{ object.target_date|date:"d M Y" }}</p>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between">
+            <a href="{% url 'delete-goal' goal.id %}" class="btn btn-danger">Delete</a>
+            <a href="{% url 'update' goal.id %}" class="btn btn-primary">Update</a>
+        </div>
+        
+    </div>
+    
+    
+</div>
+{% endblock content %}

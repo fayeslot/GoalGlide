@@ -1,0 +1,44 @@
+{% extends "goals/base.html" %}
+{% block content %}        
+  
+  <main>
+
+    <div class="container">
+        <div class="table-responsive text-nowrap">
+            <h2>Categories</h2>
+
+            <table class="table">
+                {% for category in categories %}
+                <thead>
+                <tr>
+                    <td>#</td>
+                    <th scope="col">Name</th>
+                    <th scope="col">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{category.name}}</td>
+                    <td><a style="color: blue;" href="#"><i class="fas fa-trash float-right"></i></a></td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td class="text-center" colspan="5">No Categories</td>
+                </tr>
+                <tr>
+                    <td class="text-center" colspan="5">
+                        <a class="btn btn-primary float-right" href="/">Add Goal</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+      
+    </div>
+
+  </main>
+
+{% endblock content %}        

@@ -1,0 +1,54 @@
+{% extends 'goals/base.html' %}
+{% block content %} 
+    <div id="center" class="main center">
+          <div class="mainInner"></div>
+          <strong class="ml-5">Dashboard</strong>
+    </div>
+    
+    <div class="goalglide">
+        <div class="goals-container">
+           
+            <div class="text-center">
+                <table class="table">
+                    <tbody>
+                      <tr>
+                        <td class="text-center" colspan="4"><h5 class="card-title mt-2">Not Started ({{not_started_goals}}) </h5></td>
+                      </tr>
+                      <tr>
+                        <td class="text-center" colspan="4">There are {{not_started_goals}}  goals available in this section</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+            
+            <div class="text-center">
+                <table class="table">
+                    <tbody>
+                      <tr>
+                        <td class="text-center" colspan="4"><h5 class="card-title mt-2">In Progress ({{goals_in_progress}}) </h5></td>
+                      </tr>
+                      <tr>
+                        <td class="text-center" colspan="4">There are {{goals_in_progress}} goals available in this section</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+            
+            <div class="text-center">
+                <table class="table">
+                    <tbody>
+                      <tr>
+                        <td class="text-center" colspan="4"><h5 class="card-title mt-2">Completed ({{completed_goals}})</h5></td>
+                      </tr>
+                      <tr>
+                        <td class="text-center" colspan="4">There are {{completed_goals}} goals available in this section</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+            
+        </div>
+    </div>
+    
+
+{% endblock content %}

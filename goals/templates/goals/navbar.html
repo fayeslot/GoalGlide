@@ -1,0 +1,58 @@
+
+<nav class="navbar  navbar-expand-lg navbar-light bg-white fixed-top">
+    <!-- Container wrapper -->  
+    <div class="container">
+      <div class="">
+        <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+        <label for="openSidebarMenu" class="sidebarIconToggle">
+          <i class="fas fa-bars"></i>
+        </label>
+        <div id="sidebarMenu">
+            <ul class="sidebarMenuInner">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                <li><a href="{% url 'goals' %}">Goals</a></li>
+                <li><a href="#">Category</a></li>
+                <li><a href="{% url 'accounts_management' %}">Account</a></li>
+                <li><a href="#">Activity</a></li>
+                <!--<li><a href="#">Leader Board</a></li>-->
+            </ul>
+        </div>
+      </div>
+      <!-- Collapsible wrapper -->
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+          <!-- Navbar brand -->
+          <a class="navbar-brand mt-2 mt-sm-0" href="#">
+            <img src="" height="20" alt="" loading="lazy" />
+            <h3>GoalGlide</h3>
+          </a>
+        </div>
+        <!-- Collapsible wrapper -->
+
+        <!-- Right elements -->
+        <div class="d-flex align-items-center">
+          <!-- Icon -->
+          {% if user.is_authenticated %}
+            <div class="d-flex">
+              <p class="p-3">Welcome, {{ user.username }}!</p>
+              <a class="nav-link me-3" href="{% url 'signout' %}"> 
+                <span class="clearfix d-none  d-sm-inline-block ">Logout</span>
+              </a>
+            </div>
+
+          {% else %}
+            <a class="nav-link me-3" href="{% url 'login' %}"> 
+              <span class="clearfix d-none d-sm-inline-block">Login</span>
+            </a>
+            <a class="nav-link me-3" href="{% url 'signup' %}"> 
+              <span class="clearfix d-none d-sm-inline-block">SignUp</span>
+            </a>
+          {% endif %}
+        </div>
+      
+      <!-- Right elements -->
+      
+    </div>
+    <!-- Container wrapper -->
+  </nav>

@@ -1,0 +1,28 @@
+{% extends 'goals/base.html' %}
+{% block content %}
+<div class="accounts text-center" id="accounts">
+    
+    <div class="accounts-img">
+        <h1>{{ user.username.0 | upper }}</h1>
+    </div>
+    <h3 class="heading">Hi, <span>{{user.username}}!</span></h3>
+    <div class="accounts-content">
+        <p>{{user.email}}</p>
+        
+        <div class="d-flex" style="justify-content: center;">
+            <div class="btn-box btns">
+                <a href="{% url 'manage-accounts' %}" class="btn"><box-icon name='cog'></box-icon>Manage Account</a>
+            </div>
+
+            <div class="btn-box btns">
+                <a href="{% url 'delete-accounts' %}" class="btn"><box-icon name='user-plus'></box-icon>Delete Account</a>
+            </div>
+        </div>
+        
+        <div class="btn-box btns">
+            <a href="{% url 'add-accounts' %}" class="btn"><box-icon name='user-plus'></box-icon>Add Account</a>
+        </div>
+        
+    </div>
+</div>
+{% endblock content %}

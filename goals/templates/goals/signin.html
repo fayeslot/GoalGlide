@@ -1,0 +1,37 @@
+{% extends 'goals/base.html' %}
+{% block content %}
+<main>  
+    <div class="container">    
+        <section class="mb-4">  
+            <div>
+                <div class = "adjustment  column-6 0ffset-3 text-center">
+                    <h1>Let's sign you In</h1>
+                    <form class="login" method="POST" action="{% url 'login' %}">
+                        {% csrf_token %}
+                        <div class="input-box">
+                            <span class="icon"><ion-iconname="mail"></ion-iconname></span>
+                            <input class="mb-2" type="text" placeholder="Username" name="username" required>   
+                        </div>
+                        
+                        <div class="input-box">
+                            <span class="icon"><ion-iconname="lock-closed"></ion-iconname></span>
+                            <input type="password" placeholder="Enter Password" name="pass1" required>
+                        </div>
+                        
+                        <div class="remember-forgot">
+                            <label><input type="checkbox">Remember me</label>
+                            <a href="#">Forgot Password?</a>
+                        </div>
+                        
+                        <div class="login-register">
+                            <p>Don't have an account?<a href="{% url 'signup' %}" class="register-link">Create One</a></p>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Sign in</button>
+                    </form>
+            
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+{% endblock content %}
