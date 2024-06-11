@@ -14,7 +14,6 @@ urlpatterns = [
     path('add-goal',login_required(views.addGoal),name = "add-goal"),
     path('delete-goal/<int:pk>/',views.deleteGoal,name = "delete-goal"),
     path("accounts",views.accounts_management,name="accounts_management"),
-    path("add-accounts",views.add_accounts,name="add-accounts"),
     path("manage-accounts",views.manage_accounts,name="manage-accounts"),
     path("delete-accounts",views.delete_accounts,name="delete-accounts"),
 ]

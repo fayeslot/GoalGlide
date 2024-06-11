@@ -151,32 +151,14 @@ def deleteGoal(request, pk):
 
 @login_required()
 def accounts_management(request):
-    user_account = User.objects.get()
+    user_account =  request.user
     return render(request, 'goals/account.html', {'user_account': user_account})
 
 @login_required()
-def add_accounts(request):
-    user_account = User.objects.all()
-    if request.method == 'POST':
-        form = AccountForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('accounts_management')
-    else:
-        form = AccountForm()
-    return render(request, 'goals/add_account.html', {'form': form,'user_account':user_account})
-
-@login_required()
 def manage_accounts(request):
-    user_account = User.objects.get()
-    if request.method == 'POST':
-        form = AccountForm(request.POST, instance=user_account)
-        if form.is_valid():
-            user_account = form.save()
-            return redirect('accounts_management')
-    else:
-        form = AccountForm(instance=user_account)
-    return render(request, 'goals/manage_account.html', {'form': form,'user_account':user_account})
+    user_account = request.user
+    
+    return render(request, 'goals/manage_account.html', {'user_account':user_account})
 
 @login_required()
 def delete_accounts(request):
