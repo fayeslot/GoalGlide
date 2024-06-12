@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "crispy_forms",
+    "crispy_bootstrap4",
     "goals.apps.GoalsConfig",
     "goalsapi.apps.GoalsapiConfig",
     "rest_framework",
@@ -127,6 +129,9 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL = 'media/'
 MEDIA_ROOT = Path(BASE_DIR) / 'media'
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True

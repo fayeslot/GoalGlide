@@ -17,10 +17,10 @@ VISIBILITY_CHOICES = (
 )
 
 class GoalForm(forms.Form):
-    name = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Give the name for the goal'}))
-    status_option = forms.ChoiceField(widget=forms.Select(attrs={'placeholder':'In Progress'}), choices=STATUS_CHOICES)
-    target_date = forms.DateTimeField(widget =forms.DateInput(attrs={'type': 'date'}))
-    visibility = forms.ChoiceField(widget=forms.Select(attrs={'placeholder':'Public'}), choices=VISIBILITY_CHOICES)
+    name = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Give the name for the goal','class':'form-group input'}))
+    status_option = forms.ChoiceField(widget=forms.Select(attrs={'placeholder':'In Progress','class':'form-group input'}), choices=STATUS_CHOICES)
+    target_date = forms.DateTimeField(widget =forms.DateInput(attrs={'type': 'date','class':'form-group'}))
+    visibility = forms.ChoiceField(widget=forms.Select(attrs={'placeholder':'Public','class':'form-group'}), choices=VISIBILITY_CHOICES)
 
     
 
@@ -30,12 +30,4 @@ class AccountForm(forms.Form):
     password = forms.CharField(widget =forms.TextInput(attrs={'placeholder':'Confrim Password','type': 'password'}))
     confirm_password = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Confrim Password','type': 'password'}))
 
-class AddForm(forms.ModelForm):
-    name = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Give the name for the goal'}))
-    status_option = forms.ChoiceField(widget=forms.Select(), choices=STATUS_CHOICES)
-    target_date = forms.DateTimeField(widget =forms.DateInput(attrs={'type': 'date'}))
-    visibility = forms.ChoiceField(widget=forms.Select(), choices=VISIBILITY_CHOICES)
 
-    class Meta:
-        model = Goal
-        fields = '__all__'

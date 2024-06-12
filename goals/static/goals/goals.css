@@ -236,6 +236,15 @@ input[type=checkbox]{
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.add-goal{
+  max-width: 50rem;
+  margin-bottom: 5px;
+  padding: 2rem;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 @media (max-width: 992px) {
     html{
         font-size: 100%;

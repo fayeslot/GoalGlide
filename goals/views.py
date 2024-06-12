@@ -6,8 +6,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist 
 from django.core.mail import send_mail
+from django.views import View
 from goalsvine  import settings
-from goals.forms import AddForm, GoalForm,AccountForm
+from goals.forms import GoalForm,AccountForm
 from goals.models import  Goal
 from django.db import transaction
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -100,6 +101,7 @@ def goals(request):
 class GoalDetailView(DetailView):
     model = Goal
     template_name = "goals/goaldetail.html"
+    context_object_name = 'goal'
 
 @login_required()
 def update_goal(request, pk):
@@ -113,7 +115,7 @@ def update_goal(request, pk):
             goal.visibility = form.cleaned_data['visibility']
             goal.target_date = form.cleaned_data['target_date']
             goal.save()
-            return redirect('goal-detail', id=pk)
+            return redirect('goal-detail', pk=pk)
     else:
         initial_data = {
             'name': goal.name,
@@ -123,23 +125,38 @@ def update_goal(request, pk):
         }
         form = GoalForm(initial=initial_data)
     
-    return render(request, 'goals/updategoal.html', {'form': form})
+    return render(request, 'goals/updategoal.html', {'form': form,'goal':goal})
 
 @login_required()
-def addGoal(request):
-    if request.method == 'POST':
-        form = AddForm(request.POST)
+def add_goal(request):
+    if request.method == "POST":
+        form = GoalForm(request.POST)
         if form.is_valid():
-            goal = form.save(commit=False)  # Save the form but don't commit yet
-            goal.user = request.user  # Assign the logged-in user (assuming request.user is available)
-            goal.save()  # Now commit the changes to the database
-            messages.success(request, 'Goal added successfully!')  # Display success message (optional)
-            return redirect('goals')  # Redirect to goals page after saving
+            name = form.cleaned_data["name"]
+            status_option = form.cleaned_data["status_option"]
+            target_date = form.cleaned_data["target_date"]
+            visibility = form.cleaned_data["visibility"]
+
+            goal, created = Goal.objects.get_or_create(
+                name=name,
+                status=status_option,
+                target_date=target_date,
+                visibility=visibility,
+                user=request.user
+            )
+
+            if created:
+                messages.success(request, "Goal added successfully.")
+            else:
+                messages.info(request, "Goal already exists.")
+            return redirect("goals")
         else:
-            return render(request, 'goals/addgoal.html', {'form': form, 'error': 'Form is invalid'})
+            messages.error(request, "There was an error with your form submission.")
     else:
-        form = AddForm()
-    return render(request, 'goals/addgoal.html', {'form': form})
+        form = GoalForm()
+
+    return render(request, "goals/add_goal.html", {"form": form})
+
 
 
 @login_required()
@@ -157,7 +174,6 @@ def accounts_management(request):
 @login_required()
 def manage_accounts(request):
     user_account = request.user
-    
     return render(request, 'goals/manage_account.html', {'user_account':user_account})
 
 @login_required()

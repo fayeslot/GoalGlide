@@ -22,3 +22,17 @@ def unique_slug_generator(instance, new_slug = None):
 			
 		return unique_slug_generator(instance, new_slug = new_slug) 
 	return slug
+#def addGoal(request):
+ #   if request.method == 'POST':
+  #      form = AddForm(request.POST)
+   #     if form.is_valid():
+    #        goal = form.save(commit=False)  # Save the form but don't commit yet
+     #       goal.user = request.user  # Assign the logged-in user (assuming request.user is available)
+      #      goal.save()  # Now commit the changes to the database
+       #     messages.success(request, 'Goal added successfully!')  # Display success message (optional)
+        #    return redirect('goals')  # Redirect to goals page after saving
+        #else:
+         #   return render(request, 'goals/addgoal.html', {'form': form, 'error': 'Form is invalid'})
+    #else:
+     #   form = AddForm()
+    #return render(request, 'goals/addgoal.html', {'form': form})
