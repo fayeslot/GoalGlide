@@ -14,7 +14,7 @@ VISIBILITY_CHOICES = (
 )
 # Create your models here.
     
-
+     
 class Goal(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     name = models.CharField(max_length=200)
